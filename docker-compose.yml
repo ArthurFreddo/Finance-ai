@@ -1,17 +1,17 @@
-# version: '3.9' # Versão do Docker Compose
+version: "3.9" # Versão do Docker Compose
 
-# services:
-#   postgres: # Nome do serviço
-#     image: postgres:latest # Imagem do PostgreSQL
-#     container_name: local_postgres # Nome do container
-#     ports:
-#       - "5000:5432" # Porta 5000 no host mapeada para 5432 no container
-#     environment:
-#       POSTGRES_USER: neondb_owner # Usuário do PostgreSQL
-#       POSTGRES_PASSWORD: TPfu5DRKwW2a # Senha do PostgreSQL
-#       POSTGRES_DB: neondb # Nome do banco de dados
-#     volumes:
-#       - postgres_data:/var/lib/postgresql/data # Volume persistente
+services:
+  postgres: # Nome do serviço
+    image: postgres:latest # Imagem do PostgreSQL
+    container_name: finance_postgres # Nome do container
+    ports:
+      - "5432:5432" # Porta 5432 no host mapeada para 5432 no container
+    environment:
+      POSTGRES_USER: neondb_owner # Usuário do PostgreSQL
+      POSTGRES_PASSWORD: password # Senha do PostgreSQL
+      POSTGRES_DB: finance-ai # Nome do banco de dados
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Volume persistente
 
-# volumes:
-#   postgres_data: # Volume nomeado para persistência dos dados
+volumes:
+  postgres_data: # Volume nomeado para persistência dos dados
