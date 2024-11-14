@@ -4,6 +4,21 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
+import { SidebarProvider, SidebarTrigger } from "./_components/ui/sidebar";
+import { AppSidebar } from "./_components/ui/app-sidebar";
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
+  );
+}
+
 const mulish = Mulish({
   subsets: ["latin-ext"],
 });
